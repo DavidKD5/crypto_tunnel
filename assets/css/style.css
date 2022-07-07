@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: rgb(0, 0, 32);
+    --secondary: rgb(3, 3, 91);
+    --tertiary: rgb(28, 28, 122);
+    --white: white;
+}
+
+body {
+    background: var(--primary);
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+h3 {
+    display: inline;
+    padding:20px; 
+}
