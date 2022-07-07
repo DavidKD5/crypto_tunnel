@@ -7,6 +7,7 @@
     --secondary: rgb(3, 3, 91);
     --tertiary: rgb(28, 28, 122);
     --white: white;
+    --red: rgb(251, 255, 0); 
 }
 
 body {
@@ -18,9 +19,23 @@ body {
     min-height: 100vh;
     flex-direction: column;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+}
+
+.button {
+    padding: 40px;
+    background: var(--primary);
+    color: var(--white);
+    
+}
+
+.button:hover {
+    border: 1px solid var(--white);
+    top: -2px;
+}
+
 
 h3 {
     display: inline;
-    padding:20px; 
+    padding:40px; 
+    
 }
