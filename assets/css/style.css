@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+/* default colors */
 :root {
     --primary: rgb(0, 0, 32);
     --secondary: rgb(3, 3, 91);
@@ -22,20 +23,42 @@ body {
 }
 
 .button {
-    padding: 40px;
+    padding: 70px;
     background: var(--primary);
     color: var(--white);
+    margin: 10px;
+    font-size: x-large;
+    font-weight: bolder;
+    
     
 }
 
 .button:hover {
-    border: 1px solid var(--white);
-    top: -2px;
+    border: 0.5px solid var(--white);
 }
 
 
 h3 {
     display: inline;
-    padding:40px; 
+    padding:30px; 
+    text-align: center;
     
+}
+
+.account_wrapper {
+    /* border: 1px; */
+    /* margin: 20px 300px; */
+    display: block;
+    align-content:center;
+    text-align: center;
+
+}
+
+.crypto_content {
+    border: 1px solid var(--white);
+    border-radius: 30px;
+    background-color: var(--tertiary);
+    padding: 25px;
+    margin: 20px 300px;
+
 }
