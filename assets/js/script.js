@@ -10,6 +10,8 @@ var deposit = $(".deposit");
 //   .then((data) => {
 //     console.log(data);
 //   });
+
+// Jorge's section start
 var crypto_id_list = [];
 var crypto_ticker_list = [];
 var crypto_dict = {};
@@ -34,16 +36,11 @@ while (i < 20) {
       crypto_ticker_list.push(data.data[i].symbol);
       myMap.set(data.data[i].symbol, data.data[i].id);
     }
-    console.log(myMap.get("eth"));
+    // console.log(myMap.get("eth"));
+    console.log(searchCrypto("ethereum"));
   });
 }
-// console.log(myMap);
 
-// for (var x = 0; x < crypto_ticker_list.length; x++) {
-//   // crypto_dict[crypto_ticker_list[x]] = crypto_id_list[x];
-//   console.log("yes");
-// }
-// console.log(crypto_dict);
 function searchCrypto(crypto) {
   let i = 0;
   while (i < 1) {
@@ -60,7 +57,7 @@ function searchCrypto(crypto) {
         ids: crypto,
       },
     }).then((data) => {
-      console.log(data.data.length);
+      console.log(data);
     });
   }
 }
@@ -72,3 +69,4 @@ function enterInput(e) {
 }
 
 cryptoInput.keyup(enterInput);
+// Jorge's section end
