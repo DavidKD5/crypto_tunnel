@@ -1,17 +1,17 @@
-*{
+* {
     box-sizing: border-box;
-}
-
-/* default colors */
-:root {
+  }
+  
+  /* default colors */
+  :root {
     --primary: rgb(0, 0, 32);
     --secondary: rgb(3, 3, 91);
     --tertiary: rgb(28, 28, 122);
     --white: white;
-    --red: rgb(251, 255, 0); 
-}
-
-body {
+    --red: rgb(251, 255, 0);
+  }
+  
+  body {
     background: var(--primary);
     color: var(--white);
     margin: 0;
@@ -20,45 +20,47 @@ body {
     min-height: 100vh;
     flex-direction: column;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.button {
+  }
+  
+  .button {
     padding: 70px;
     background: var(--primary);
     color: var(--white);
     margin: 10px;
     font-size: x-large;
     font-weight: bolder;
-    
-    
-}
-
-.button:hover {
+  }
+  
+  .button:hover {
     border: 0.5px solid var(--white);
-}
-
-
-h3 {
+  }
+  
+  h3 {
     display: inline;
-    padding:30px; 
+    padding: 30px;
     text-align: center;
-    
-}
-
-.account_wrapper {
+  }
+  
+  .account_wrapper {
     /* border: 1px; */
     /* margin: 20px 300px; */
+  
     display: block;
-    align-content:center;
+  
+    align-content: center;
     text-align: center;
-
-}
-
-.crypto_content {
+  }
+  
+  .crypto_list_wrapper {
+    max-width: 100%;
+    display: grid;
+    text-align: center;
+  }
+  
+  .crypto_content {
     border: 1px solid var(--white);
     border-radius: 30px;
     background-color: var(--tertiary);
     padding: 25px;
     margin: 20px 300px;
-
-}
+  }
