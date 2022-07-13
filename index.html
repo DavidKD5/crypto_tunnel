@@ -33,7 +33,7 @@
 
     <div class="crypto_content">
       <section class="crypto_list_wrapper">
-        <table class="">
+        <table class="" id="tab">
           <thead>
             <tr>
               <th scope="col">TICKER</th>
@@ -48,22 +48,22 @@
             <tr class="fw-normal" v-for="each in porfolio">
               <th>
                 <img src=""/>
-                <span>BTC</span>
+                <span class="portfolioTicker">BTC</span>
               </th>
               <td class=>
-                <span>Bitcoin</span>
+                <span class="portfolioCrypto">Bitcoin</span>
               </td>
               <td class=>
-                <span>$19025.21</span>
+                <span class="portfolioPrice">$19025.21</span>
               </td>
               <td class=>
-                <span>0.19%</span>
+                <spa class="portfolioChange">0.19%</span>
               </td>
               <td class=>
-                <span>2.5</span>
+                <span class="portfolioCryptoAmount">2.5</span>
               </td>
               <td class=>
-                <span>$35000</span>
+                <span class="portfolioAmountUSD">$35000</span>
               </td>
             </tr>
           </tbody>
@@ -74,12 +74,28 @@
 </div>
 
 
-    <div class="deposit">
-      <p>Search cryptocurrency asset for deposit</p>
+    <div class="depositMenu">
+      <p>Search Cryptocurrency Ticker For <span class="depositOrWithdraw"></span></p>
       <input type="text" name="" id="cryptoInput">
       <p class="incorrectTicker"></p>
     </div>
 
+    <div class="amountMenu">
+      <p>Enter Amount Of <span class="ticker"></span><span class="cryptoName"></span> For <span class="depositOrWithdraw">:</span>:</p>
+      <input type="text" name="" id="amountInput">
+      <p class="incorrectTicker"></p>
+      <p>Total Amount In USD:</p>
+      <p class="totalAmountUSD"></p>
+      <button class="backBtn">Back</button>
+      <button class="cancelBtn">Cancel</button>
+      <button class="nextBtn">Next</button>
+    </div>
+
+    <div class="confirmMenu">
+      <p>Are You Sure You Want To <span class="depositOrWithdraw"></span><span class="amountOfCrypto"></span> <span class="ticker"></span> Into Account?</p>
+      <button class="yesBtn">Yes</button>
+      <button class="noBtn">No</button>
+    </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/js/script.js"></script>
