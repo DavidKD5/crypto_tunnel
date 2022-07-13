@@ -32,10 +32,10 @@ body {
   font-weight: bolder;
 } */
 
-/* .button:hover {
+.button:hover {
   border-radius: 15px;
-  border: 1px solid white;
-} */
+  border: 2px solid white;
+}
 
 h3 {
   display: inline;
@@ -50,16 +50,22 @@ h3 {
   text-align: center;
 }
 
-.crypto_list_wrapper {
+/* .crypto_list_wrapper {
   max-width: 100%;
   display: grid;
-  text-align: center;
-}
+  text-align: center; 
+  text-align: 20px auto;
+} */
 
 .crypto_content {
-  border: 1px solid var(--white);
+  /* border: 1px solid var(--white);
   border-radius: 30px;
   background-color: var(--tertiary);
   padding: 25px;
-  margin: 20px 300px;
-}/*# sourceMappingURL=style.css.map */
+  margin: 20px 300px; */
+  text-align: 20px auto;
+}
+
+.fw-normal {
+  padding: 5px;
+}
