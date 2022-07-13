@@ -14,6 +14,9 @@ var cancelBtn = $(".cancelBtn");
 var nextBtn = $(".nextBtn");
 var yesBtn = $(".yesBtn");
 var noBtn = $(".noBtn");
+var deposit = $(".deposit");
+var incorrectCrypto = $(".incorrectTicker");
+
 // Jorge's section start
 var crypto_id_list = [];
 var crypto_ticker_list = [];
@@ -67,6 +70,7 @@ function searchCrypto(crypto) {
   }).then((data) => {
     // console.log(data);
     var cryptoPrice = data.data[0].current_price;
+    console.log(data);
   });
 }
 
@@ -82,60 +86,66 @@ function enterInput(e) {
     if (myMap.get(cryptoInput.val())) {
       searchCrypto(crypto_name_input);
       depositMenu.hide();
-    } else {
-      incorrectCrypto.text(
-        "No crypto ticker found. Please enter correct ticker information."
-      );
+      incorrectCrypto.text("");
+      var crypto_name_input = myMap.get(cryptoInput.val());
+      if (myMap.get(cryptoInput.val())) {
+        searchCrypto(crypto_name_input);
+      } else {
+        incorrectCrypto.text(
+          "No crypto ticker found. Please enter correct ticker information."
+        );
+      }
     }
   }
-}
 
-function amountEnterInput(e) {
-  if (e.keyCode === 13) {
-    var amountInputVal = amountInput.val();
-    var crypto_name_input = myMap.get(cryptoInput.val());
-    nextBtn.show();
-    axios({
-      method: "get",
-      url: "https://api.coingecko.com/api/v3/coins/markets?",
-      params: {
-        vs_currency: "usd",
-        order: "market_cap_desc",
-        per_page: "250",
-        sparkline: "false",
-        ids: crypto_name_input,
-      },
-    }).then((data) => {
-      var cryptoPrice = data.data[0].current_price;
-      totalAmountUSD.text("$" + cryptoPrice * amountInputVal);
-    });
+  function amountEnterInput(e) {
+    if (e.keyCode === 13) {
+      var amountInputVal = amountInput.val();
+      var crypto_name_input = myMap.get(cryptoInput.val());
+      nextBtn.show();
+      axios({
+        method: "get",
+        url: "https://api.coingecko.com/api/v3/coins/markets?",
+        params: {
+          vs_currency: "usd",
+          order: "market_cap_desc",
+          per_page: "250",
+          sparkline: "false",
+          ids: crypto_name_input,
+        },
+      }).then((data) => {
+        var cryptoPrice = data.data[0].current_price;
+        totalAmountUSD.text("$" + cryptoPrice * amountInputVal);
+      });
+    }
   }
+
+  depositBtn.click(() => {
+    depositMenu.show();
+    depositOrWithdraw.text("Deposit");
+  });
+
+  cryptoInput.keyup(() => {
+    enterInput(event);
+  });
+
+  amountInput.keyup(() => {
+    amountEnterInput(event);
+  });
+
+  nextBtn.click(() => {
+    amountMenu.hide();
+    confirmMenu.show();
+  });
 }
-
-depositBtn.click(() => {
-  depositMenu.show();
-  depositOrWithdraw.text("Deposit");
-});
-
-cryptoInput.keyup(() => {
-  enterInput(event);
-});
-
-amountInput.keyup(() => {
-  amountEnterInput(event);
-});
-
-nextBtn.click(() => {
-  amountMenu.hide();
-  confirmMenu.show();
-});
-
-yesBtn.click(() => {
-  $("#tab").append(
-    $("<tr>")
-      .append($("<td>").append("text1"))
-      .append($("<td>").append(crypto_name_input))
-      .append($("<td>").append("text3"))
-      .append($("<td>").append("text4"))
-  );
-});
+// yesBtn.click(() => {
+//   $("#tab").append(
+//     $("<tr>")
+//       .append($("<td>").append("text1"))
+//       .append($("<td>").append(crypto_name_input))
+//       .append($("<td>").append("text3"))
+//       .append($("<td>").append("text4"))
+//   );
+// });
+// cryptoInput.keyup(enterInput);
+// Jorge's section end
