@@ -23,18 +23,19 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* .button {
-  padding: 70px;
+.button {
+  /* padding: 70px;
   background: var(--primary);
   color: var(--white);
-  margin: 10px;
+  margin: 10px; */
   font-size: x-large;
   font-weight: bolder;
-} */
+}
 
 .button:hover {
   border-radius: 15px;
   border: 2px solid white;
+
 }
 
 h3 {
@@ -48,6 +49,10 @@ h3 {
   display: block;
   align-content: center;
   text-align: center;
+}
+
+.table-info {
+  padding-top: 10px;
 }
 
 /* .crypto_list_wrapper {
@@ -64,8 +69,19 @@ h3 {
   padding: 25px;
   margin: 20px 300px; */
   text-align: 20px auto;
+  background-color: var(--tertiary);
+  margin-bottom: 8px;
 }
 
 .fw-normal {
   padding: 5px;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: aquamarine;
+  color: black;
+}
+
+.crypto-info {
+  border-radius: 8px;
+  border: 2px solid white;
 }
