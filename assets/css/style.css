@@ -1,9 +1,10 @@
+
 * {
   box-sizing: border-box;
 }
 
 /* default colors */
- :root {
+:root {
   --primary: rgb(0, 0, 32);
   --secondary: rgb(3, 3, 91);
   --tertiary: rgb(28, 28, 122);
@@ -22,26 +23,19 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
- .button { 
+/* .button {
   padding: 70px;
   background: var(--primary);
   color: var(--white);
   margin: 10px;
   font-size: x-large;
   font-weight: bolder;
-}
+} */
 
-.button:hover {
-  border: 0.5px solid var(--white);
-  letter-spacing: 2px;
-
-  /* rect {
-    stroke-width: 5;
-    stroke-dasharray: 15, 310;
-    stroke-dashoffset: 48;
-    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
-  } */
-}
+/* .button:hover {
+  border-radius: 15px;
+  border: 1px solid white;
+} */
 
 h3 {
   display: inline;
@@ -50,11 +44,8 @@ h3 {
 }
 
 .account_wrapper {
-   border: 1px; 
-   margin: 20px 300px; 
-
-   display: block;
-
+  margin: 30px auto;
+  display: block;
   align-content: center;
   text-align: center;
 }
@@ -71,4 +62,4 @@ h3 {
   background-color: var(--tertiary);
   padding: 25px;
   margin: 20px 300px;
-} 
+}/*# sourceMappingURL=style.css.map */
