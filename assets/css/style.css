@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -22,18 +23,19 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.button {
+/* .button {
   padding: 70px;
   background: var(--primary);
   color: var(--white);
   margin: 10px;
   font-size: x-large;
   font-weight: bolder;
-}
+} */
 
-.button:hover {
-  border: 0.5px solid var(--white);
-}
+/* .button:hover {
+  border-radius: 15px;
+  border: 1px solid white;
+} */
 
 h3 {
   display: inline;
@@ -42,11 +44,8 @@ h3 {
 }
 
 .account_wrapper {
-  /* border: 1px; */
-  /* margin: 20px 300px; */
-
+  margin: 30px auto;
   display: block;
-
   align-content: center;
   text-align: center;
 }
@@ -63,4 +62,4 @@ h3 {
   background-color: var(--tertiary);
   padding: 25px;
   margin: 20px 300px;
-}
+}/*# sourceMappingURL=style.css.map */
