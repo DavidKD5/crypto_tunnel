@@ -49,6 +49,7 @@ function all_crypto_data() {
   });
 }
 all_crypto_data();
+
 function searchCrypto(crypto) {
   axios({
     method: "get",
@@ -60,8 +61,11 @@ function searchCrypto(crypto) {
       sparkline: "false",
       ids: crypto,
     },
-  }).then((data) => {});
+  }).then((data) => {
+    localStorage.setItem("cryptoLogo", data.data[0].image);
+  });
 }
+
 function withdrawFunction(e) {
   if (
     e.keyCode === 13 &&
@@ -73,6 +77,7 @@ function withdrawFunction(e) {
   }
 }
 cryptoInput.keyup(withdrawFunction);
+
 function enterInput(e) {
   if (e.keyCode === 13 && depositOrWithdraw.text() == "DepositDepositDeposit") {
     incorrectCrypto.text("");
@@ -92,6 +97,7 @@ function enterInput(e) {
     }
   }
 }
+
 function amountEnterInput(e) {
   if (e.keyCode === 13) {
     var amountInputVal = amountInput.val();
@@ -141,17 +147,20 @@ nextBtn.click(() => {
 });
 
 var counter = 0;
+
 yesBtn.click(() => {
   var crypto_name_input = myMap.get(cryptoInput.val());
   var cryptoPrice = localStorage.getItem("cryptoPrice");
   var amountInputVal = amountInput.val();
   portfolioBalance = portfolioBalance + cryptoPrice * amountInputVal;
   var USDValue = "$" + (cryptoPrice * amountInputVal).toFixed(2);
-
+  var cryptoLogo = localStorage.getItem("cryptoLogo");
+  console.log(cryptoLogo);
   counter = counter + 1;
   accountBalance.text("$" + portfolioBalance.toFixed(2));
   $("#tab").append(
     $("<tr class=fw-normal>")
+      .append('<img src="' + cryptoLogo + '" class="cryptoImage"></img>')
       .append(
         $('<td class="portfolioTicker">').append(
           cryptoInput.val().toUpperCase()
@@ -175,7 +184,7 @@ yesBtn.click(() => {
         $(
           '<td class="deleteBtn' +
             counter +
-            '"><img src="assets/images/delete.png"  onclick="deleteItem' +
+            '"><img src="assets/images/delete.png" class="deleteIcon" onclick="deleteItem' +
             counter +
             '();">)'
         )

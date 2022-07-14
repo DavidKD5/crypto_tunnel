@@ -103,3 +103,16 @@ body {
 #cryptoSearch {
   color: black;
 }
+
+.cryptoImage {
+  width: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.deleteIcon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
