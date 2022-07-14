@@ -104,7 +104,6 @@ function enterInput(e) {
     }
   }
 }
-<<<<<<< HEAD
 
 function amountEnterInput(e) {
   if (e.keyCode === 13) {
@@ -201,18 +200,3 @@ yesBtn.click(() => {
   totalAmountUSD.text("");
 });
 cryptoInput.keyup(enterInput);
-=======
-// yesBtn.click(() => {
-//   $("#tab").append(
-//     $("<tr>")
-//       .append($("<td>").append("text1"))
-//       .append($("<td>").append(crypto_name_input))
-//       .append($("<td>").append("text3"))
-//       .append($("<td>").append("text4"))
-//   );
-// });
-// cryptoInput.keyup(enterInput);
-// Jorge's section end
-
-
->>>>>>> 35924032e4ae88d26605d5ddbab66b23e5c9c00d
