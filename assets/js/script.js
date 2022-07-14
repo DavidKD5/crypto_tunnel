@@ -1,6 +1,19 @@
 var current_date = document.querySelector("#current_date");
 current_date.textContent = moment().format("MMMM Do, YYYY");
 var cryptoInput = $("#cryptoInput");
+var amountInput = $("#amountInput");
+var depositMenu = $(".depositMenu");
+var amountMenu = $(".amountMenu");
+var confirmMenu = $(".confirmMenu");
+var incorrectCrypto = $(".incorrectTicker");
+var depositBtn = $("#deposit_button");
+var withdrawBtn = $("#withdraw_button");
+var totalAmountUSD = $(".totalAmountUSD");
+var backBtn = $(".backBtn");
+var cancelBtn = $(".cancelBtn");
+var nextBtn = $(".nextBtn");
+var yesBtn = $(".yesBtn");
+var noBtn = $(".noBtn");
 var deposit = $(".deposit");
 var incorrectCrypto = $(".incorrectTicker");
 var amountOfCrypto = $(".amountOfCrypto");
@@ -14,6 +27,11 @@ var ticker = $(".ticker");
 var accountBalance = $(".account_balance");
 
 var portfolioBalance = 0;
+
+depositMenu.hide();
+amountMenu.hide();
+confirmMenu.hide();
+nextBtn.hide();
 
 function all_crypto_data() {
   axios({

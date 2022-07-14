@@ -96,3 +96,19 @@ h3 {
   margin-right: auto;
   margin-top: 3px;
 }
+
+.deposit {
+  display: none; 
+}
+
+.depositMenu {
+  display: none;
+}
+
+#cryptoInput {
+  color: black;
+}
+
+#cryptoSearch {
+  color: black;
+}
