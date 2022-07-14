@@ -26,14 +26,11 @@ var cryptoPrice = null;
 var ticker = $(".ticker");
 var accountBalance = $(".account_balance");
 var tableBody = $(".tableBody");
-
 var portfolioBalance = 0;
-
 depositMenu.hide();
 amountMenu.hide();
 confirmMenu.hide();
 nextBtn.hide();
-
 function all_crypto_data() {
   axios({
     method: "get",
@@ -51,9 +48,7 @@ function all_crypto_data() {
     }
   });
 }
-
 all_crypto_data();
-
 function searchCrypto(crypto) {
   axios({
     method: "get",
@@ -67,7 +62,6 @@ function searchCrypto(crypto) {
     },
   }).then((data) => {});
 }
-
 function withdrawFunction(e) {
   if (
     e.keyCode === 13 &&
@@ -78,14 +72,11 @@ function withdrawFunction(e) {
     });
   }
 }
-
 cryptoInput.keyup(withdrawFunction);
-
 function enterInput(e) {
   if (e.keyCode === 13 && depositOrWithdraw.text() == "DepositDepositDeposit") {
     incorrectCrypto.text("");
     var crypto_name_input = myMap.get(cryptoInput.val());
-
     if (myMap.get(cryptoInput.val())) {
       searchCrypto(crypto_name_input);
       depositMenu.hide();
@@ -101,7 +92,6 @@ function enterInput(e) {
     }
   }
 }
-
 function amountEnterInput(e) {
   if (e.keyCode === 13) {
     var amountInputVal = amountInput.val();
@@ -128,27 +118,21 @@ function amountEnterInput(e) {
     });
   }
 }
-
 depositBtn.click(() => {
   depositMenu.show();
   depositOrWithdraw.text("Deposit");
 });
-
 withdrawBtn.click(() => {
   var portfolioTicker = $(".portfolioTicker");
-
   depositMenu.show();
   depositOrWithdraw.text("Withdraw");
 });
-
 cryptoInput.keyup((e) => {
   enterInput(e);
 });
-
 amountInput.keyup((e) => {
   amountEnterInput(e);
 });
-
 nextBtn.click(() => {
   var amountInputVal = amountInput.val();
   amountMenu.hide();
@@ -167,7 +151,7 @@ yesBtn.click(() => {
   counter = counter + 1;
   accountBalance.text("$" + portfolioBalance.toFixed(2));
   $("#tab").append(
-    $("<tr>")
+    $("<tr class=fw-normal>")
       .append(
         $('<td class="portfolioTicker">').append(
           cryptoInput.val().toUpperCase()
@@ -197,7 +181,6 @@ yesBtn.click(() => {
         )
       )
   );
-
   confirmMenu.hide();
   cryptoInput.val("");
   amountInput.val("");
