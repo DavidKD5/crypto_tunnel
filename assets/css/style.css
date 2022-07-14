@@ -118,30 +118,34 @@ body {
 }
 
 .amounts {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 20%;
 }
 
 .depositMenu {
-  margin-top: 200px;
+  /* margin-top: 200px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
   font-weight: 500;
   font-size: 20px;
 }
 
 .confirmMenu {
-  margin-top: 200px;
+  /* margin-top: 200px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
   font-weight: 500;
   font-size: 20px;
 }
 
 .amountMenu {
-  margin-top: 200px;
+  /* margin-top: 200px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
   font-weight: 500;
   font-size: 20px;
 }
