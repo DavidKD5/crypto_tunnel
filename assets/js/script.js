@@ -25,6 +25,7 @@ var depositOrWithdraw = $(".depositOrWithdraw");
 var cryptoPrice = null;
 var ticker = $(".ticker");
 var accountBalance = $(".account_balance");
+var tableBody = $(".tableBody");
 
 var portfolioBalance = 0;
 
@@ -164,10 +165,10 @@ yesBtn.click(() => {
   portfolioBalance = portfolioBalance + cryptoPrice * amountInputVal;
   var USDValue = "$" + (cryptoPrice * amountInputVal).toFixed(2);
 
-  deleteBtn.click(() => {
-    console.log("clicked");
-    // deleteBtn.closest(".tr").remove();
-  });
+  // deleteBtn.click(() => {
+  //   console.log("clicked");
+  //   // deleteBtn.closest(".tr").remove();
+  // });
 
   accountBalance.text("$" + portfolioBalance.toFixed(2));
   $("#tab").append(
@@ -191,7 +192,11 @@ yesBtn.click(() => {
       )
       .append($("<td>").append(amountInputVal))
       .append($('<td class="portfolioAmountUSD">').append(USDValue))
-      .append($('<td><img src="assets/images/delete.png" class="bs" alt="">)'))
+      .append(
+        $(
+          '<td><img src="assets/images/delete.png" class="deleteBtn" onclick="deleteItem();">)'
+        )
+      )
   );
 
   confirmMenu.hide();
@@ -201,7 +206,18 @@ yesBtn.click(() => {
 });
 cryptoInput.keyup(enterInput);
 
-bs = $(".bs");
-bs.click(() => {
-  console.log("clicked");
-});
+function deleteItem() {
+  $(this).remove();
+  count();
+}
+
+function count() {
+  var TotalValue = 0;
+
+  $("tr .portfolioAmountUSD").each(function (index, value) {
+    currentRow = parseFloat($(this).text());
+    TotalValue += currentRow;
+  });
+
+  console.log(TotalValue);
+}
