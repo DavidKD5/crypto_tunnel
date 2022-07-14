@@ -97,6 +97,10 @@ h3 {
   margin-top: 3px;
 }
 
+<<<<<<< HEAD
+.bs {
+  color: green;
+=======
 .deposit {
   display: none; 
 }
@@ -111,4 +115,5 @@ h3 {
 
 #cryptoSearch {
   color: black;
+>>>>>>> 9e40ffa3f514506050838a0d90dceb13f107a3e6
 }
