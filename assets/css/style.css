@@ -31,11 +31,7 @@ body {
 .button:hover {
   border-radius: 15px;
   border: 2px solid white;
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(1, 1, 32),
-    rgb(47, 47, 182)
-  );
+  background-color: #0b164a;
   letter-spacing: 2px;
 }
 
@@ -52,6 +48,9 @@ body {
 .crypto_content {
   background-color: var(--tertiary);
   margin-bottom: 8px;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .fw-normal {
   padding: 5px;
@@ -89,7 +88,7 @@ body {
 }
 
 .cryptoImage {
-  width: 30px;
+  width: 50px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -119,12 +118,44 @@ body {
 }
 
 .amounts {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 20%;
 }
 
-#carouselCaptions{
- 
+.depositMenu {
+  /* margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto; */
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.confirmMenu {
+  /* margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto; */
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.amountMenu {
+  /* margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto; */
+  font-weight: 500;
+  font-size: 20px;
+}
+
+tr {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+#carouselCaptions {
   padding: 10px;
   margin: 100px 400px 400px 400px;
 }
