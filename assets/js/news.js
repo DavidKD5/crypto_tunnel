@@ -1,12 +1,13 @@
 const GNews_api_key = "77f48f6bd862a8aae1cb5f4494b47559";
-// var newsTitle = $("#newsTitle");
-console.log(alert);
 
 
+// fetch gnews api
 fetch('https://gnews.io/api/v4/search?q=cryptocurrency&token='+GNews_api_key)
     .then(function (response) {
         return response.json();
     })
+
+    // adds content to carousel
     .then(function (data) {   
              
         var title = (data.articles[0].title);
