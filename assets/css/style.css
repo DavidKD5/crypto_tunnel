@@ -35,6 +35,7 @@ body {
   border-radius: 15px;
   border: 2px solid white;
   background-image: linear-gradient(to bottom right, rgb(1, 1, 32), rgb(47, 47, 182));
+  letter-spacing: 2px;
 }
 
 h3 {
