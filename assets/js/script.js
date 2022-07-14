@@ -27,6 +27,7 @@ var ticker = $(".ticker");
 var accountBalance = $(".account_balance");
 var tableBody = $(".tableBody");
 var portfolioBalance = 0;
+var allContent = $(".allContent");
 depositMenu.hide();
 amountMenu.hide();
 confirmMenu.hide();
@@ -126,6 +127,7 @@ function amountEnterInput(e) {
 }
 depositBtn.click(() => {
   depositMenu.show();
+  allContent.hide();
   depositOrWithdraw.text("Deposit");
 });
 withdrawBtn.click(() => {
@@ -158,6 +160,7 @@ yesBtn.click(() => {
   console.log(cryptoLogo);
   counter = counter + 1;
   accountBalance.text("$" + portfolioBalance.toFixed(2));
+  allContent.show();
   $("#tab").append(
     $("<tr class=fw-normal>")
       .append('<img src="' + cryptoLogo + '" class="cryptoImage"></img>')

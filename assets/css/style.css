@@ -30,11 +30,7 @@ body {
 .button:hover {
   border-radius: 15px;
   border: 2px solid white;
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(1, 1, 32),
-    rgb(47, 47, 182)
-  );
+  background-color: #0b164a;
   letter-spacing: 2px;
 }
 
@@ -51,6 +47,8 @@ body {
 .crypto_content {
   background-color: var(--tertiary);
   margin-bottom: 8px;
+  max-width: 1300px;
+  margin-left: 15%;
 }
 .fw-normal {
   padding: 5px;
@@ -88,7 +86,7 @@ body {
 }
 
 .cryptoImage {
-  width: 30px;
+  width: 50px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -120,4 +118,30 @@ body {
 .amounts {
   text-align: center;
   align-items: center;
+}
+
+.depositMenu {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+}
+
+.confirmMenu {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+}
+
+.amountMenu {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+}
+
+tr {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.tab {
 }
