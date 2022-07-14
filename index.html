@@ -13,10 +13,18 @@
   <body>
     
     <header class="home text-center bg-gradient-to-b from-">
+    <div class=""> 
+      <img src="assets/images/delete.png" class="bs">
+    </div>
+    <header class="home text-center">
     <div class="account_wrapper">
-      <h1 class="text-4xl">Account Overview</h1>
+      <h1 class="text-3xl">Account Overview</h1>
       <h2 id="current_date"></h2>
-      <h3 class="account_balance text-3xl">$20,000.35</h3>
+      <h3 class="account_balance text-4xl">$0</h3>
+      <!-- <button class="button" id="deposit_button" type="submit">Deposit</button>
+      <button class="button" id="withdraw_button" type="submit">
+        Withdraw
+      </button> -->
     </div>
     </header>
     <div class="account_wrapper w-3/4 object-center flex-row grid">
@@ -32,34 +40,37 @@
             <tr>
               <th scope="col">TICKER</th>
               <th scope="col">NAME</th>
-              <th scope="col">PRICE</th>
-              <th scope="col">24 CHANGE</th>
+              <th scope="col">CURRENT PRICE</th>
+              <th scope="col">24hr % CHANGE</th>
               <th scope="col">AMOUNT</th>
               <th scope="col">USD VALUE</th>
+              <th scope="col">DELETE</th>
             </tr>
           </thead>
-          <tbody class="crypto-info">
+          <tbody class="tableBody crypto-info">
             <tr class="fw-normal p-4 bg-transparent" v-for="each in porfolio">
               <!-- <th class="border-l-2 border-white py-2"> -->
-                <th>
+                <!-- <th> -->
+              <th>
                 <img src=""/>
-                <span class="portfolioTicker">BTC</span>
+                <span class="portfolioTicker"></span>
               </th>
               <td class=>
-                <span class="portfolioCrypto">Bitcoin</span>
+                <span class="portfolioCrypto"></span>
               </td>
               <td class=>
-                <span class="portfolioPrice">$19025.21</span>
+                <span class="portfolioPrice"></span>
               </td>
               <td class=>
-                <spa class="portfolioChange">0.19%</span>
+                <spa class="portfolioChange"></span>
               </td>
               <td class=>
-                <span class="portfolioCryptoAmount">2.5</span>
+                <span class="portfolioCryptoAmount"></span>
               </td>
               <td class=>
-                <span class="portfolioAmountUSD">$35000</span>
+                <span class="portfolioAmountUSD"></span>
               </td>
+              <td></td>
             </tr>
           </tbody>
         </table>
@@ -74,6 +85,13 @@
   <p class="font-medium text-lg mt-40 mb-4">Search cryptocurrency asset for deposit:</p>
   <input type="text" name="" id="cryptoSearch" class="rounded-md">
 </div>
+    <div class="depositMenu">
+      <p>Search Cryptocurrency Ticker For <span class="depositOrWithdraw"></span></p>
+    <div class="deposit">
+      <input type="text" name="" id="cryptoInput">
+      <p class="incorrectTicker"></p>
+    </div>
+    </div>
 
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
