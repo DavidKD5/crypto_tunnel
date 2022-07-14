@@ -12,7 +12,7 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom right, rgb(1, 1, 32), rgb(21, 21, 121));
+  background-image: linear-gradient(to bottom right, rgb(1, 1, 32), rgb(47, 47, 182));
   color: var(--white);
   margin: 0;
   padding: 0;
@@ -34,6 +34,7 @@ body {
 .button:hover {
   border-radius: 15px;
   border: 2px solid white;
+  background-image: linear-gradient(to bottom right, rgb(1, 1, 32), rgb(47, 47, 182));
 }
 
 h3 {
