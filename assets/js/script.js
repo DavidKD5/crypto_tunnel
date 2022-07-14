@@ -128,6 +128,7 @@ function amountEnterInput(e) {
 depositBtn.click(() => {
   depositMenu.show();
   allContent.hide();
+  $("#carouselCaptions").hide();
   depositOrWithdraw.text("Deposit");
 });
 withdrawBtn.click(() => {
