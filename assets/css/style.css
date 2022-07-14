@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  color: white;
 }
 
 :root {
@@ -120,4 +121,10 @@ body {
 .amounts {
   text-align: center;
   align-items: center;
+}
+
+#carouselCaptions{
+ 
+  padding: 10px;
+  margin: 100px 400px 400px 400px;
 }
