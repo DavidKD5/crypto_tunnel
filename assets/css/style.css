@@ -20,13 +20,10 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .button {
-  /* padding: 70px;
-  background: var(--primary);
-  color: var(--white);
-  margin: 10px; */
+  
   font-size: x-large;
   font-weight: bolder;
-} */
+} 
 .button:hover {
   border-radius: 15px;
   border: 2px solid white;
