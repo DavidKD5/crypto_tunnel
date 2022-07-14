@@ -1,64 +1,114 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 /* default colors */
 :root {
-    --primary: rgb(0, 0, 32);
-    --secondary: rgb(3, 3, 91);
-    --tertiary: rgb(28, 28, 122);
-    --white: white;
-    --red: rgb(251, 255, 0); 
+  --primary: rgb(0, 0, 32);
+  --secondary: rgb(3, 3, 91);
+  --tertiary: rgb(28, 28, 122);
+  --white: white;
+  --red: rgb(251, 255, 0);
 }
 
 body {
-    background: var(--primary);
-    color: var(--white);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: linear-gradient(to bottom right, rgb(1, 1, 32), rgb(47, 47, 182));
+  color: var(--white);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .button {
-    padding: 70px;
-    background: var(--primary);
-    color: var(--white);
-    margin: 10px;
-    font-size: x-large;
-    font-weight: bolder;
-    
-    
+  /* padding: 70px;
+  background: var(--primary);
+  color: var(--white);
+  margin: 10px; */
+  font-size: x-large;
+  font-weight: bolder;
 }
 
 .button:hover {
-    border: 0.5px solid var(--white);
+  border-radius: 15px;
+  border: 2px solid white;
+  background-image: linear-gradient(to bottom right, rgb(1, 1, 32), rgb(47, 47, 182));
+  letter-spacing: 2px;
 }
 
-
 h3 {
-    display: inline;
-    padding:30px; 
-    text-align: center;
-    
+  display: inline;
+  padding: 30px;
+  text-align: center;
 }
 
 .account_wrapper {
-    /* border: 1px; */
-    /* margin: 20px 300px; */
-    display: block;
-    align-content:center;
-    text-align: center;
-
+  margin: 30px auto;
+  display: block;
+  align-content: center;
+  text-align: center;
 }
 
-.crypto_content {
-    border: 1px solid var(--white);
-    border-radius: 30px;
-    background-color: var(--tertiary);
-    padding: 25px;
-    margin: 20px 300px;
+.table-info {
+  padding-top: 10px;
+}
 
+/* .crypto_list_wrapper {
+  max-width: 100%;
+  display: grid;
+  text-align: center; 
+  text-align: 20px auto;
+} */
+
+.crypto_content {
+  /* border: 1px solid var(--white);
+  border-radius: 30px;
+  background-color: var(--tertiary);
+  padding: 25px;
+  margin: 20px 300px; */
+  text-align: 20px auto;
+  background-color: var(--tertiary);
+  margin-bottom: 8px;
+}
+
+
+.fw-normal {
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: rgb(105, 168, 219);
+  color: black;
+}
+
+.crypto-info {
+  border-radius: 8px;
+  border: 2px solid white;
+}
+  /* margin: 20px 300px;
+} # sourceMappingURL=style.css.map */
+
+.deleteBtn {
+  /* width: 100%; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3px;
+}
+
+.deposit {
+  display: none; 
+}
+
+.depositMenu {
+  display: none;
+}
+
+#cryptoInput {
+  color: black;
+}
+
+#cryptoSearch {
+  color: black;
 }
