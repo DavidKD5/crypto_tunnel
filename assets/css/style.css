@@ -96,5 +96,22 @@ body {
 #cryptoSearch {
   color: black;
 }
+.amountMenu button {
+  background-color: rgb(105, 135, 219);
+  border: 1px solid white;
+  padding: 3px;
+  color: black;
+  border-radius: 3px;
+  margin: 3px;
+}
+
+.confirmMenu button {
+  background-color: rgb(105, 135, 219);
+  border: 1px solid white;
+  padding: 3px;
+  color: black;
+  border-radius: 3px;
+  margin: 3px;
+}
 
 
