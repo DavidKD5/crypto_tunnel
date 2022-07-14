@@ -16,18 +16,17 @@ var yesBtn = $(".yesBtn");
 var noBtn = $(".noBtn");
 var deposit = $(".deposit");
 var incorrectCrypto = $(".incorrectTicker");
+var amountOfCrypto = $(".amountOfCrypto");
 
-// Jorge's section start
 var crypto_id_list = [];
 var crypto_ticker_list = [];
 var myMap = new Map();
 var depositOrWithdraw = $(".depositOrWithdraw");
 var cryptoPrice = null;
 var ticker = $(".ticker");
+var accountBalance = $(".account_balance");
 
-// let i = 0;
-// while (i < 1) {
-// i++;
+var portfolioBalance = 0;
 
 depositMenu.hide();
 amountMenu.hide();
@@ -54,6 +53,7 @@ function all_crypto_data() {
   });
   // }
 }
+
 all_crypto_data();
 
 function searchCrypto(crypto) {
@@ -67,85 +67,136 @@ function searchCrypto(crypto) {
       sparkline: "false",
       ids: crypto,
     },
-  }).then((data) => {
-    // console.log(data);
-    var cryptoPrice = data.data[0].current_price;
-    console.log(data);
-  });
+  }).then((data) => {});
 }
 
+function withdrawFunction(e) {
+  if (
+    e.keyCode === 13 &&
+    depositOrWithdraw.text() == "WithdrawWithdrawWithdraw"
+  ) {
+    $("#tableBody tr").filter(function () {
+      cryptoInput.val();
+    });
+  }
+}
+
+cryptoInput.keyup(withdrawFunction);
+
 function enterInput(e) {
-  if (e.keyCode === 13) {
-    amountMenu.show();
+  if (e.keyCode === 13 && depositOrWithdraw.text() == "DepositDepositDeposit") {
     incorrectCrypto.text("");
     var crypto_name_input = myMap.get(cryptoInput.val());
-    ticker.text(
-      crypto_name_input.substring(0, 1).toUpperCase() +
-        crypto_name_input.substring(1)
-    );
+    console.log("happened");
+
     if (myMap.get(cryptoInput.val())) {
       searchCrypto(crypto_name_input);
       depositMenu.hide();
-      incorrectCrypto.text("");
-      var crypto_name_input = myMap.get(cryptoInput.val());
-      if (myMap.get(cryptoInput.val())) {
-        searchCrypto(crypto_name_input);
-      } else {
-        incorrectCrypto.text(
-          "No crypto ticker found. Please enter correct ticker information."
-        );
-      }
+      amountMenu.show();
+      ticker.text(
+        crypto_name_input.substring(0, 1).toUpperCase() +
+          crypto_name_input.substring(1)
+      );
+    } else {
+      incorrectCrypto.text(
+        "No crypto ticker found. Please enter correct ticker information."
+      );
     }
   }
-
-  function amountEnterInput(e) {
-    if (e.keyCode === 13) {
-      var amountInputVal = amountInput.val();
-      var crypto_name_input = myMap.get(cryptoInput.val());
-      nextBtn.show();
-      axios({
-        method: "get",
-        url: "https://api.coingecko.com/api/v3/coins/markets?",
-        params: {
-          vs_currency: "usd",
-          order: "market_cap_desc",
-          per_page: "250",
-          sparkline: "false",
-          ids: crypto_name_input,
-        },
-      }).then((data) => {
-        var cryptoPrice = data.data[0].current_price;
-        totalAmountUSD.text("$" + cryptoPrice * amountInputVal);
-      });
-    }
-  }
-
-  depositBtn.click(() => {
-    depositMenu.show();
-    depositOrWithdraw.text("Deposit");
-  });
-
-  cryptoInput.keyup(() => {
-    enterInput(event);
-  });
-
-  amountInput.keyup(() => {
-    amountEnterInput(event);
-  });
-
-  nextBtn.click(() => {
-    amountMenu.hide();
-    confirmMenu.show();
-  });
 }
-// yesBtn.click(() => {
-//   $("#tab").append(
-//     $("<tr>")
-//       .append($("<td>").append("text1"))
-//       .append($("<td>").append(crypto_name_input))
-//       .append($("<td>").append("text3"))
-//       .append($("<td>").append("text4"))
-//   );
-// });
-// cryptoInput.keyup(enterInput);
-// Jorge's section end
+
+function amountEnterInput(e) {
+  if (e.keyCode === 13) {
+    var amountInputVal = amountInput.val();
+    var crypto_name_input = myMap.get(cryptoInput.val());
+    nextBtn.show();
+    axios({
+      method: "get",
+      url: "https://api.coingecko.com/api/v3/coins/markets?",
+      params: {
+        vs_currency: "usd",
+        order: "market_cap_desc",
+        per_page: "250",
+        sparkline: "false",
+        ids: crypto_name_input,
+      },
+    }).then((data) => {
+      localStorage.setItem("cryptoPrice", data.data[0].current_price);
+      var cryptoPrice = localStorage.getItem("cryptoPrice");
+      totalAmountUSD.text("$" + cryptoPrice * amountInputVal);
+      localStorage.setItem(
+        "priceChange",
+        data.data[0].price_change_percentage_24h
+      );
+      console.log(localStorage.getItem("priceChange"));
+    });
+  }
+}
+
+depositBtn.click(() => {
+  depositMenu.show();
+  depositOrWithdraw.text("Deposit");
+});
+
+withdrawBtn.click(() => {
+  var portfolioTicker = $(".portfolioTicker");
+
+  depositMenu.show();
+  depositOrWithdraw.text("Withdraw");
+});
+
+cryptoInput.keyup((e) => {
+  enterInput(e);
+});
+
+amountInput.keyup((e) => {
+  amountEnterInput(e);
+});
+
+nextBtn.click(() => {
+  var amountInputVal = amountInput.val();
+  amountMenu.hide();
+  amountOfCrypto.text(" " + amountInputVal);
+  confirmMenu.show();
+});
+
+yesBtn.click(() => {
+  var crypto_name_input = myMap.get(cryptoInput.val());
+  var cryptoPrice = localStorage.getItem("cryptoPrice");
+  var amountInputVal = amountInput.val();
+  portfolioBalance = portfolioBalance + cryptoPrice * amountInputVal;
+
+  accountBalance.text("$" + portfolioBalance);
+  $("#tab").append(
+    $("<tr>")
+      .append(
+        $('<td class="portfolioTicker">').append(
+          cryptoInput.val().toUpperCase()
+        )
+      )
+      .append(
+        $("<td>").append(
+          crypto_name_input.substring(0, 1).toUpperCase() +
+            crypto_name_input.substring(1)
+        )
+      )
+      .append($("<td>").append("$" + cryptoPrice))
+      .append(
+        $("<td>").append(
+          parseFloat(localStorage.getItem("priceChange")).toFixed(2) + "%"
+        )
+      )
+      .append($("<td>").append(amountInputVal))
+      .append(
+        $('<td class="portfolioAmountUSD">').append(
+          (cryptoPrice * amountInputVal).toFixed(2)
+        )
+      )
+  );
+
+  confirmMenu.hide();
+  cryptoInput.val("");
+  amountInput.val("");
+  totalAmountUSD.text("");
+});
+cryptoInput.keyup(enterInput);
