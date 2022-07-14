@@ -30,11 +30,7 @@ body {
   background-image: linear-gradient(to bottom right, rgb(1, 1, 32), rgb(47, 47, 182));
   letter-spacing: 2px;
 }
-/* h3 {
-  display: inline;
-  padding: 30px;
-  text-align: center;
-} */
+
 .account_wrapper {
   margin: 30px auto;
   display: block;
@@ -44,18 +40,8 @@ body {
 .table-info {
   padding-top: 10px;
 }
-/* .crypto_list_wrapper {
-  max-width: 100%;
-  display: grid;
-  text-align: center;
-} */
+
 .crypto_content {
-  /* border: 1px solid var(--white);
-  border-radius: 30px;
-  background-color: var(--tertiary);
-  padding: 25px;
-  margin: 20px 300px; */
-  /* text-align: 20px auto; */
   background-color: var(--tertiary);
   margin-bottom: 8px;
 }
@@ -81,9 +67,8 @@ body {
 .bs {
   color: green;
 }
-/* .deposit {
-  display: none; 
-} */
+
+
 
 .depositMenu {
   display: none;
@@ -97,4 +82,26 @@ body {
   color: black;
 }
 
+.amounts {
+  text-align: center;
+  align-items: center;
+}
+
+.amountMenu button {
+  background-color: rgb(105, 135, 219);
+  border: 1px solid white;
+  padding: 3px;
+  color: black;
+  border-radius: 3px;
+  margin: 3px;
+}
+
+.confirmMenu button {
+  background-color: rgb(105, 135, 219);
+  border: 1px solid white;
+  padding: 3px;
+  color: black;
+  border-radius: 3px;
+  margin: 3px;
+}
 
