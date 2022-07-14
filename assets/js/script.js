@@ -77,7 +77,6 @@ function enterInput(e) {
   if (e.keyCode === 13 && depositOrWithdraw.text() == "DepositDepositDeposit") {
     incorrectCrypto.text("");
     var crypto_name_input = myMap.get(cryptoInput.val());
-    console.log("happened");
     if (myMap.get(cryptoInput.val())) {
       searchCrypto(crypto_name_input);
       depositMenu.hide();
@@ -116,7 +115,6 @@ function amountEnterInput(e) {
         "priceChange",
         data.data[0].price_change_percentage_24h
       );
-      console.log(localStorage.getItem("priceChange"));
     });
   }
 }
@@ -141,16 +139,16 @@ nextBtn.click(() => {
   amountOfCrypto.text(" " + amountInputVal);
   confirmMenu.show();
 });
+
+var counter = 0;
 yesBtn.click(() => {
   var crypto_name_input = myMap.get(cryptoInput.val());
   var cryptoPrice = localStorage.getItem("cryptoPrice");
   var amountInputVal = amountInput.val();
   portfolioBalance = portfolioBalance + cryptoPrice * amountInputVal;
   var USDValue = "$" + (cryptoPrice * amountInputVal).toFixed(2);
-  // deleteBtn.click(() => {
-  //   console.log("clicked");
-  //   // deleteBtn.closest(".tr").remove();
-  // });
+
+  counter = counter + 1;
   accountBalance.text("$" + portfolioBalance.toFixed(2));
   $("#tab").append(
     $("<tr class=fw-normal>")
@@ -175,7 +173,11 @@ yesBtn.click(() => {
       .append($('<td class="portfolioAmountUSD">').append(USDValue))
       .append(
         $(
-          '<td><img src="assets/images/delete.png" class="deleteBtn" onclick="deleteItem();">)'
+          '<td class="deleteBtn' +
+            counter +
+            '"><img src="assets/images/delete.png"  onclick="deleteItem' +
+            counter +
+            '();">)'
         )
       )
   );
@@ -185,15 +187,67 @@ yesBtn.click(() => {
   totalAmountUSD.text("");
 });
 cryptoInput.keyup(enterInput);
-function deleteItem() {
-  $(this).remove();
-  count();
+
+function deleteItem1() {
+  var red = $(".deleteBtn1").parent().children("td.portfolioAmountUSD").text();
+  withdrawAmount = parseFloat(red.substring(1));
+  portfolioBalance = portfolioBalance - withdrawAmount;
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
+  $(".deleteBtn1").parent().remove();
 }
-function count() {
-  var TotalValue = 0;
-  $("tr .portfolioAmountUSD").each(function (index, value) {
-    currentRow = parseFloat($(this).text());
-    TotalValue += currentRow;
-  });
-  console.log(TotalValue);
+function deleteItem2() {
+  var red = $(".deleteBtn2").parent().children("td.portfolioAmountUSD").text();
+  withdrawAmount = parseFloat(red.substring(1));
+  portfolioBalance = portfolioBalance - withdrawAmount;
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
+  $(".deleteBtn2").parent().remove();
+}
+function deleteItem3() {
+  var red = $(".deleteBtn3").parent().children("td.portfolioAmountUSD").text();
+  withdrawAmount = parseFloat(red.substring(1));
+  portfolioBalance = portfolioBalance - withdrawAmount;
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
+  $(".deleteBtn3").parent().remove();
+}
+function deleteItem4() {
+  var red = $(".deleteBtn4").parent().children("td.portfolioAmountUSD").text();
+  withdrawAmount = parseFloat(red.substring(1));
+  portfolioBalance = portfolioBalance - withdrawAmount;
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
+  $(".deleteBtn4").parent().remove();
+}
+function deleteItem5() {
+  var red = $(".deleteBtn5").parent().children("td.portfolioAmountUSD").text();
+  withdrawAmount = parseFloat(red.substring(1));
+  portfolioBalance = portfolioBalance - withdrawAmount;
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
+  $(".deleteBtn5").parent().remove();
+}
+function deleteItem6() {
+  var red = $(".deleteBtn6").parent().children("td.portfolioAmountUSD").text();
+  withdrawAmount = parseFloat(red.substring(1));
+  portfolioBalance = portfolioBalance - withdrawAmount;
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
+  $(".deleteBtn6").parent().remove();
+}
+function deleteItem7() {
+  var red = $(".deleteBtn7").parent().children("td.portfolioAmountUSD").text();
+  withdrawAmount = parseFloat(red.substring(1));
+  portfolioBalance = portfolioBalance - withdrawAmount;
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
+  $(".deleteBtn7").parent().remove();
+}
+function deleteItem8() {
+  var red = $(".deleteBtn8").parent().children("td.portfolioAmountUSD").text();
+  withdrawAmount = parseFloat(red.substring(1));
+  portfolioBalance = portfolioBalance - withdrawAmount;
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
+  $(".deleteBtn8").parent().remove();
+}
+function deleteItem9() {
+  var red = $(".deleteBtn9").parent().children("td.portfolioAmountUSD").text();
+  withdrawAmount = parseFloat(red.substring(1));
+  portfolioBalance = portfolioBalance - withdrawAmount;
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
+  $(".deleteBtn9").parent().remove();
 }
