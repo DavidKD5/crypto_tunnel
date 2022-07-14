@@ -17,7 +17,7 @@ var noBtn = $(".noBtn");
 var deposit = $(".deposit");
 var incorrectCrypto = $(".incorrectTicker");
 var amountOfCrypto = $(".amountOfCrypto");
-
+var deleteBtn = $(".deleteBtn");
 var crypto_id_list = [];
 var crypto_ticker_list = [];
 var myMap = new Map();
@@ -41,8 +41,6 @@ function all_crypto_data() {
       vs_currency: "usd",
       order: "market_cap_desc",
       per_page: "250",
-      // page: i,
-      // sparkline: "false",
     },
   }).then((data) => {
     for (var i = 0; i < data.data.length; i++) {
@@ -51,7 +49,6 @@ function all_crypto_data() {
       myMap.set(data.data[i].symbol, data.data[i].id);
     }
   });
-  // }
 }
 
 all_crypto_data();
@@ -165,8 +162,14 @@ yesBtn.click(() => {
   var cryptoPrice = localStorage.getItem("cryptoPrice");
   var amountInputVal = amountInput.val();
   portfolioBalance = portfolioBalance + cryptoPrice * amountInputVal;
+  var USDValue = "$" + (cryptoPrice * amountInputVal).toFixed(2);
 
-  accountBalance.text("$" + portfolioBalance);
+  deleteBtn.click(() => {
+    console.log("clicked");
+    // deleteBtn.closest(".tr").remove();
+  });
+
+  accountBalance.text("$" + portfolioBalance.toFixed(2));
   $("#tab").append(
     $("<tr>")
       .append(
@@ -187,11 +190,8 @@ yesBtn.click(() => {
         )
       )
       .append($("<td>").append(amountInputVal))
-      .append(
-        $('<td class="portfolioAmountUSD">').append(
-          (cryptoPrice * amountInputVal).toFixed(2)
-        )
-      )
+      .append($('<td class="portfolioAmountUSD">').append(USDValue))
+      .append($('<td><img src="assets/images/delete.png" class="bs" alt="">)'))
   );
 
   confirmMenu.hide();
@@ -200,3 +200,8 @@ yesBtn.click(() => {
   totalAmountUSD.text("");
 });
 cryptoInput.keyup(enterInput);
+
+bs = $(".bs");
+bs.click(() => {
+  console.log("clicked");
+});
