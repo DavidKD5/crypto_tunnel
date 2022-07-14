@@ -137,6 +137,7 @@ depositBtn.click(() => {
 
 withdrawBtn.click(() => {
   var portfolioTicker = $(".portfolioTicker");
+  // console.log("hello");
 
   depositMenu.show();
   depositOrWithdraw.text("Withdraw");
