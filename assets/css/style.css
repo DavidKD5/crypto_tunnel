@@ -84,12 +84,6 @@ body {
 #cryptoSearch {
   color: black;
 }
-
-.amounts {
-  text-align: center;
-  align-items: center;
-}
-
 .amountMenu button {
   background-color: rgb(105, 135, 219);
   border: 1px solid white;
@@ -107,6 +101,14 @@ body {
   border-radius: 3px;
   margin: 3px;
 }
+
+.amounts {
+  text-align: center;
+  align-items: center;
+}
+
+
+
 
 
 
